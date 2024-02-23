@@ -126,3 +126,30 @@ footer {
     text-align: center;
   }
 }
+/*My additon below.  Realized afterwards the article selector above was designated for the hover 
+changes and styling, but I did it another way. Added tooltip for HTML for fun
+*/
+span {
+  text-decoration: underline;
+}
+span:hover{
+  cursor: grab;
+}
+
+#csstooltip:hover::after {
+  content: "Makes things pretty";
+  position:relative; 
+  padding: 3px;
+  font-size: 80%;
+  background-color: #13293d;
+  color: #b9c6ae;
+}
+
+#htmltooltip:hover::after{
+content: "HyperText Markup Language";
+position:relative; 
+padding: 3px;
+background-color: #13293d;
+font-size: 80%;
+color: #b9c6ae;
+}
