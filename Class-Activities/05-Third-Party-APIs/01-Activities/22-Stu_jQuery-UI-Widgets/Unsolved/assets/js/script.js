@@ -37,5 +37,6 @@ $(`#skill-name`).autocomplete({
 
 // Add Datepicker widget here
 dateInputEl.datepicker({
-  dateFormat:`yy-mm`
+  changeMonth: true,
+  changeYear: true
 })
