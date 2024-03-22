@@ -23,11 +23,12 @@ var words = ["variable","array", "modulus", "object", "function", "string", "boo
 function init() {
   getWins();
   getlosses();
+  console.log("init");
 }
 
 // The startGame function is called when the start button is clicked
 function startGame() {
-  console.log("start button clicked")
+  console.log("start button clicked");
   isWin = false;
   timerCount = 10;
   // Prevents start button from being clicked when round is in progress
@@ -56,11 +57,35 @@ function loseGame() {
 function startTimer() {
   // Sets timer
  
+ 
+  timer = setInterval(function(){
+  if (timerCount > 0){
+  timerCount--;
+  timerElement.textContent = timerCount;
+  if (timerCount === 0) {
+    clearInterval(timer);
+    loseGame();
+   
+  } 
+}
+ }, 1000);
 }
 
 // Creates blanks on screen
 function renderBlanks() {
   // Randomly picks word from words array
+ let wordsLength = words.length;
+ let randomIndex = Math.floor(Math.random() * wordsLength);
+ chosenWord = words[randomIndex];
+ //blanksarray is storing balnks globally at top
+ for (let i = 0; i < chosenWord.length; i++) {
+  if (chosenWord[i] !== " "){
+    blanksLetters.push("_");
+  } else {
+    blanksLetters.push(" ")
+  }
+ }
+ wordBlank.textContent = blanksLetters.join(" ");// after clicking start the field has "_" characters
 
 }
 
@@ -77,9 +102,8 @@ function setLosses() {
 
 // These functions are used by init
 function getWins() {
-  chosenword=
+  
   // Get stored value from client storage, if it exists
- 
 }
 
 function getlosses() {
